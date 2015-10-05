@@ -65,7 +65,7 @@ declare module ExpressValidator {
 		/**
 		 * Accepts http, https, ftp
 		 */
-		isUrl(): Validator;
+		isURL(): Validator;
 		/**
 		 * Combines isIPv4 and isIPv6
 		 */
@@ -111,6 +111,10 @@ declare module ExpressValidator {
 		/**
 		 * max is optional
 		 */
+		isLength(min:number, max?:number): Validator;
+		/**
+		 * Alias for isLength
+		 */
 		len(min:number, max?:number): Validator;
 		/**
 		 * Version can be 3, 4 or 5 or empty, see http://en.wikipedia.org/wiki/Universally_unique_identifier
@@ -154,6 +158,15 @@ declare module ExpressValidator {
 		 * Check an input only when the input exists
 		 */
 		optional(): Validator;
+		/**
+		 * Check string is a valid mongoID
+		 */
+		isMongoId(): Validator;
+		/**
+		 * Check ISO8601
+		 * Data elements and interchange formats – Information interchange – Representation of dates and times
+		 */
+		isISO8601(): Validator;
 	}
 
 	interface Sanitizer {
